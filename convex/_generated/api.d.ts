@@ -12,6 +12,7 @@ import type * as notes from "../notes.js";
 import type * as together from "../together.js";
 import type * as utils from "../utils.js";
 import type * as whisper from "../whisper.js";
+import type * as whisper_node from "../whisper_node.js";
 
 import type {
   ApiFromModules,
@@ -32,6 +33,7 @@ declare const fullApi: ApiFromModules<{
   together: typeof together;
   utils: typeof utils;
   whisper: typeof whisper;
+  whisper_node: typeof whisper_node;
 }>;
 declare const fullApiWithMounts: typeof fullApi;
 

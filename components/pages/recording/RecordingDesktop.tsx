@@ -39,7 +39,8 @@ export default function RecordingDesktop({
             generatingTitle && 'animate-pulse'
           }`}
         >
-          {generatingTitle ? 'Generating Title...' : title ?? 'Untitled Note'}
+          {/* {generatingTitle ? 'Generating Title...' : title ?? 'Untitled Note'} */}
+          { title ?? 'Untitled Note'}
         </h1>
         <div className="flex items-center justify-center">
           <p className="text-lg opacity-80">
@@ -97,7 +98,7 @@ export default function RecordingDesktop({
             </ul>
           )}
         </div>
-        <div className="relative mx-auto mt-[27px] w-full max-w-[900px] px-5 md:mt-[45px]">
+        {/* <div className="relative mx-auto mt-[27px] w-full max-w-[900px] px-5 md:mt-[45px]">
           {generatingActionItems
             ? [0, 1, 3].map((item: any, idx: number) => (
                 <div
@@ -163,7 +164,7 @@ export default function RecordingDesktop({
               View All Action Items
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

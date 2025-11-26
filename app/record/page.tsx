@@ -45,11 +45,23 @@ const RecordVoicePage = () => {
         body: audioBlob,
       });
       const { storageId } = await result.json();
+      console.log("Uploaded file storageId:", storageId);
 
       if (user) {
         let noteId = await createNote({
           storageId,
         });
+
+         // Trigger transcription immediately after upload
+       try {
+    await fetch("/api/transcribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ noteId, storageId }),
+    });
+  } catch (error) {
+    console.error("Transcription failed:", error);
+  }
 
         router.push(`/recording/${noteId}`);
       }

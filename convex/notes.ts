@@ -27,7 +27,7 @@ export const createNote = mutationWithUser({
       generatingActionItems: true,
     });
 
-    await ctx.scheduler.runAfter(0, internal.whisper.chat, {
+    await ctx.scheduler.runAfter(0, internal.whisper_node.chat, {
       fileUrl,
       id: noteId,
     });

@@ -7,6 +7,19 @@ import {
   customQuery,
 } from 'convex-helpers/server/customFunctions';
 import { Auth } from 'convex/server';
+import { v } from "convex/values";
+
+export const getFileUrl = query({
+  args: { storageId: v.id("_storage") },
+  handler: async (ctx, args) => {
+    const url = await ctx.storage.getUrl(args.storageId);
+    if (!url) {
+  console.error("Storage ID not found or deleted:", args.storageId);
+  throw new Error(`Audio file unavailable, please re-record`);
+}
+    return url;
+  },
+});
 
 export const queryWithUser = customQuery(
   query,
